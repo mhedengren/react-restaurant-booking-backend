@@ -1,1 +1,1 @@
-## Backend for react restaurant booking app
+## Backend for react restaurant booking app.
