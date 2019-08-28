@@ -27,7 +27,20 @@ class Reservations {
                     ":res_date" => "2019-08-29"
                 ]
             );
-            $test = $statement->fetchAll();
-            return $test;
+
+            $listWithRes = [];
+            while($row = $statement->fetch(PDO::FETCH_OBJ)) {
+                array_push($listWithRes, [
+                    "id" => $row->res_id,
+                    "guests" => $row->res_guests,
+                    "date" => $row->res_date,
+                    "time" => $row->res_time,
+                    "name" => $row->res_name,
+                    "email" => $row->res_email,
+                    "phone" => $row->res_tel,
+                ]);    
+            }
+
+            return json_encode($listWithRes);
     }
 }
