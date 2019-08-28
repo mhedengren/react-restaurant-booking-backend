@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-include '../Includes/pdo.php';
-
 include './Classes/Reservations.php';
 
 $reservation = new Reservations();
