@@ -1,6 +1,6 @@
 <?php
 
-include '../database-connection.php';
+include './database-connection.php';
 
 class Reservations {
 
@@ -20,8 +20,14 @@ class Reservations {
     // }
 
     public function fetchReservations($pdo) {
-        $statement = $pdo->prepare("SELECT * FROM `reservations`"); 
-            $statement->execute();
+        $statement = $pdo->prepare("SELECT * FROM `reservations` 
+            WHERE res_date = :res_date "); 
+            $statement->execute(
+                [
+                    ":res_date" => "2019-08-29"
+                ]
+            );
             $test = $statement->fetchAll();
             return $test;
+    }
 }
