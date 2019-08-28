@@ -20,7 +20,7 @@ class Reservations {
     // }
 
     public function fetchReservations($pdo) {
-        $statement = $pdo->prepare("SELECT * FROM `reservation`"); 
+        $statement = $pdo->prepare("SELECT * FROM `reservations`"); 
             $statement->execute();
             $test = $statement->fetchAll();
             return $test;
