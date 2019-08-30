@@ -54,4 +54,13 @@ class Reservations {
             }
             return json_encode($allRes);
     }
+
+    public function adminDeleteReservation($pdo) {
+        $statement = $pdo->prepare("DELETE FROM reservations WHERE res_id = :res_id ");
+            $statement->execute(
+                [
+                    ":res_id"=> 1
+                ]
+            );
+    }
 }
