@@ -13,7 +13,7 @@ var_dump($data);
 
 $reservation = new Reservations();
 
-$reservation->res_id = $data->data->res_id;
+$reservation->res_id = $data->params->res_id;
 
 $delete = $reservation->adminDeleteReservation($pdo);
 echo ($delete);
