@@ -17,7 +17,7 @@ class Reservations {
             WHERE res_date = :res_date "); 
             $statement->execute(
                 [
-                    ":res_date" => "2019-08-29"
+                    ":res_date" => $this->res_date
                 ]
             );
 
