@@ -59,7 +59,7 @@ class Reservations {
         $statement = $pdo->prepare("DELETE FROM reservations WHERE res_id = :res_id ");
             $statement->execute(
                 [
-                    ":res_id"=> 1
+                    ":res_id"=> $this->res_id
                 ]
             );
     }
