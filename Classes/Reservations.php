@@ -63,4 +63,8 @@ class Reservations {
                 ]
             );
     }
+
+    public function adminUpdateReservation($pdo) {
+        $statement = $pdo->prepare("UPDATE reservations SET WHERE ")
+    }
 }
