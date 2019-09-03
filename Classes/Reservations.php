@@ -65,6 +65,9 @@ class Reservations {
     }
 
     public function adminUpdateReservation($pdo) {
-        $statement = $pdo->prepare("UPDATE reservations SET WHERE ")
+        $statement = $pdo->prepare("UPDATE reservations 
+        SET res_guests = :res_guests,
+        res_date = :res_date 
+        WHERE res_id = :res_id");
     }
 }
