@@ -64,6 +64,30 @@ class Reservations {
             );
     }
 
+    public function getSingleReservation($pdo) {
+        $statement = $pdo->prepare("SELECT * FROM `reservations` 
+        WHERE res_id = :res_id "); 
+        $statement->execute(
+            [
+                ":res_id" => $this->res_id
+            ]
+        );
+        $singleRes = new stdClass();
+            while($row = $statement->fetch(PDO::FETCH_OBJ)) {
+                
+                $singleRes->id = $row->res_id;
+                $singleRes->guests = $row->res_guests;
+                $singleRes->date = $row->res_date;
+                $singleRes->time = $row->res_time;
+                $singleRes->name = $row->res_name;
+                $singleRes->email = $row->res_email;
+                $singleRes->phone = $row->res_tel;
+                
+            }
+            return json_encode($singleRes);
+
+    }
+
     public function adminUpdateReservation($pdo) {
         $statement = $pdo->prepare("UPDATE reservations 
         SET res_guests = :res_guests,
