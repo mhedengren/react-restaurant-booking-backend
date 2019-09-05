@@ -7,20 +7,15 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 include './Classes/Reservations.php';
 
-$data = json_decode(file_get_contents('php://input'));
-var_dump($data);
+
+
+$data = $_GET['res_id'];
+
 $reservation = new Reservations();
 
 $reservation->res_id = $data;
-$reservation->res_guests = $data;
-$reservation->res_date = $data;
-$reservation->res_time = $data;
-$reservation->res_name = $data;
-$reservation->res_email = $data;
-$reservation->res_tel = $data;
 
-$update = $reservation->adminUpdateReservation($pdo);
-echo json_encode($update);
-
+$singleReservation = $reservation->getSingleReservation($pdo);
+echo ($singleReservation);
 
 ?>
