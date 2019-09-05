@@ -9,9 +9,7 @@ include './Classes/Reservations.php';
 
 
 
-$data = $_GET['res_id']; //json_decode(file_get_contents('php://input'));
-
-//var_dump($data);
+$data = $_GET['res_id'];
 
 $reservation = new Reservations();
 
