@@ -110,17 +110,21 @@ class Reservations {
                 ":res_tel" => $this->res_tel
             ]
         ); return;
-        $updatedRes = new stdClass();
-            while($row = $statement->fetch(PDO::FETCH_OBJ)) {
-                
-                $updatedRes->id = $row->res_id;
-                $updatedRes->guests = $row->res_guests;
-                $updatedRes->date = $row->res_date;
-                $updatedRes->time = $row->res_time;
-                $updatedRes->name = $row->res_name;
-                $updatedRes->email = $row->res_email;
-                $updatedRes->phone = $row->res_tel;   
-            }
-            return json_encode($updatedRes);
+    }
+
+    public function adminCreateReservation($pdo) {
+        $statement = $pdo->prepare("INSERT INTO reservations 
+        (res_guests, res_date, res_time, res_name, res_email, res_tel)
+        VALUES(:res_guests, :res_date, :res_time, :res_name, :res_email, :res_tel) ");
+        $statement->execute(
+            [ 
+                ":res_guests" => $this->res_guests,
+                ":res_date" =>  $this->res_date,
+                ":res_time" =>  $this->res_time,
+                ":res_name" =>  $this->res_name,
+                ":res_email" =>  $this->res_email,
+                ":res_tel" =>  $this->res_tel
+            ]
+        ); return;        
     }
 }
