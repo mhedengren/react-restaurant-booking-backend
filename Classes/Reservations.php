@@ -105,29 +105,12 @@ class Reservations {
                 ":res_guests" => $this->res_guests,
                 ":res_date" => $this->res_date,
                 ":res_time" => $this->res_time,
-                ":res_name" => $this->res_time,
+                ":res_name" => $this->res_name,
                 ":res_email" => $this->res_email,
                 ":res_tel" => $this->res_tel
             ]
         ); return;
     }
-
-    public function adminCreateReservation($pdo) {
-        $statement = $pdo->prepare("INSERT INTO reservations 
-        (res_guests, res_date, res_time, res_name, res_email, res_tel)
-        VALUES(:res_guests, :res_date, :res_time, :res_name, :res_email, :res_tel) ");
-        $statement->execute(
-            [ 
-                ":res_guests" => $this->res_guests,
-                ":res_date" =>  $this->res_date,
-                ":res_time" =>  $this->res_time,
-                ":res_name" =>  $this->res_name,
-                ":res_email" =>  $this->res_email,
-                ":res_tel" =>  $this->res_tel
-            ]
-        ); return;        
-    }
-
 
     public function postReservation($pdo){
 
