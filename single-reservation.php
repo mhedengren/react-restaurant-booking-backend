@@ -8,7 +8,6 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 include './Classes/Reservations.php';
 
 
-
 $data = $_GET['res_id'];
 
 $reservation = new Reservations();
