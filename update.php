@@ -7,6 +7,7 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 include './Classes/Reservations.php';
 
+
 $data = json_decode(file_get_contents('php://input'));
 
 var_dump($data);
